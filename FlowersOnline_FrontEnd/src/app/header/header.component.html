@@ -1,0 +1,24 @@
+<!-- Displaying the Title and required buttons -->
+<header>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <h1 style="text-align: center">Flowers Online Shoping</h1>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)"
+        placeholder="Search Products">
+      <button mat-raised-button style="margin-right:20px" color="accent" routerLink="products">Home</button>
+      <button mat-raised-button style="margin-right:20px" routerLink="userregister">User</button>
+      <button mat-raised-button style="margin-right:20px" routerLink="adminsignup" color="warn">Admin</button>
+      <div>
+        <button mat-raised-button style="margin-right:20px" color="accent" *ngIf="service.loggedIn()" routerLink="cart"
+          class="btn btn-primary">
+          <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
+          <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
+        </button>
+      </div>
+      <a mat-raised-button style="margin-right:20px" class="nav-link" routerLink="" *ngIf="service.loggedIn()"
+        (click)="service.logoutUser()" color="warn">logout</a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>

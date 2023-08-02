@@ -1,0 +1,99 @@
+<!-- Displaying the All the products -->
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+
+        <div class="item">
+            <a (click)="filter('')">
+                <img style="width:100px;margin-top: 12px;"
+                    src="https://th.bing.com/th/id/OIP.wVLU_eKVN-B81NTp9CPT3QHaEc?pid=ImgDet&rs=1" alt="">
+                <h6>All Products</h6>
+            </a>
+        </div>
+
+        <!-- Displaying the Lotus icon -->
+        <div class="item">
+            <a (click)="filter('Home')">
+                <img style="width:100px;margin-top: 12px;"
+                    src="https://vietnamtrips.com/files/photos/article1162/lotus-in-vietnam.jpg"
+                    alt="">
+                <h6>Lotus</h6>
+            </a>
+        </div>
+        <!-- Displaying the Red Roses Icon -->
+        <div class="item">
+            <a (click)="filter('Grocery')">
+                <img style="width:100px;margin-top: 12px;"
+                    src="https://www.bellaroseflorist.com/kernel/imageload/?table=fol3_catalog_images&key1=1212_large_feature" alt="">
+                <h6> Red Roses</h6>
+            </a>
+        </div>
+        <!-- Displaying the White Roses Icon -->
+        <div class="item">
+            <a (click)="filter('Mobiles')">
+                <img style="width:100px;margin-top: 12px;"
+                    src="https://cdn.shopify.com/s/files/1/1060/3816/products/Decent_Looks_0ec04c52-b685-4214-bb01-89968f51ff52.jpg?v=1594973248"
+                    alt="">
+                <h6> White Roses</h6>
+            </a>
+        </div>
+        <!-- Displaying the Habiscus Icon -->
+        <div class="item">
+            <a (click)="filter('Fashion')">
+                <img style="width:100px;margin-top: 12px;"
+                    src="https://cdn.britannica.com/91/239491-050-41193899/red-hibiscus-flower-stamen.jpg"
+                    alt="">
+                <h6> Habiscus </h6>
+            </a>
+        </div>
+        <!-- Displaying the Lily Icon -->
+        <div class="item">
+            <a (click)="filter('Beauty')">
+                <img style="width:100px;margin-top: 12px;"
+                    src="https://www.gardendesign.com/pictures/images/675x529Max/site_3/asiatic-lily-cappuccino-lily-creative-commons_11653.jpg"
+                    alt="">
+                <h6> Lily </h6>
+            </a>
+        </div>
+        <!-- Displaying the Jasmine Icon -->
+        <div class="item">
+            <a (click)="filter('Appliances')">
+                <img style="width:100px;margin-top: 12px;"
+                    src="https://5.imimg.com/data5/XH/YR/MY-5816306/jasmine-flower-500x500.jpg"
+                    alt="">
+                <h6> Jasmine </h6>
+            </a>
+        </div>
+
+        <!-- Displaying the Mariglod Icon -->
+        <div class="item">
+            <a (click)="filter('Sports')">
+                <img style="width:100px;margin-top: 12px;"
+                    src="https://cf.organicbazar.net/wp-content/uploads/2021/06/Untitled-design-2022-06-03T184949.278.jpg"
+                    alt="">
+                <h6> Marigold </h6>
+            </a>
+        </div>
+        <!-- Displaying the Daisy Icon -->
+        <div class="item">
+            <a (click)="filter('Eletronics')">
+                <img style="width:100px;margin-top: 12px;"
+                    src="https://cdn.britannica.com/36/82536-050-7E968918/Shasta-daisies.jpg" alt="">
+                <h6> Daisy </h6>
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <ng-container *ngFor="let product of filterCategory | filter:searchKey:'pname'">
+                <div class="card col-md-3">
+                    <img class="card-img-top" src='../../assets/{{product.url}}'>
+                    <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                        {{product.pname}}</h5>
+                    <p><strong>Price:</strong>{{product.price}}</p>
+                    <button class="btn btn-primary" (click)="addtocart(product)">Add to Cart</button>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
